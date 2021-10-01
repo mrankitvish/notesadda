@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block title %} Upload {% endblock title %} {% block content %}
+<div>{% if file_path %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uploaded Successfully!</strong><a href="{{ file_path }}"> :File</a> has been uploaded on our server
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <div class="container py-3"></div>
+    <form class="form-control block " action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name='name' class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name='email' class="form-control">
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">University/Collage/School Name</label>
+            <input type="text" name='uni_coll' class="form-control">
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Branch/Class Name</label>
+            <input type="text" name='branchName' class="form-control">
+            <span class='hint'>* CSE</span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Year/Standard -Name</label>
+            <input type="number" name='year' class="form-control">
+            <span class='hint'>* 1st, 2nd,... 8th</span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Semester/Subject Name</label>
+            <input type="number" name='semName' class="form-control">
+            <span class='hint'>* 1, 2, .. 8</span>
+
+        </div>
+
+        <div class="mb-3">
+            <hr></hr>
+        </div>
+        <span class='hint'> *Make sure your file size less then 20MB</span>
+        <div>
+            <p></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload the PDF/Excel file</label>
+            <input accept=".pdf,.xls,.xlsx" class="form-control" type="file" id="formFile" name="myFile">
+        </div>
+
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+
+            </div>
+        </div>
+        <div>
+            <p></p>
+        </div>
+        {{ form.captcha }}
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+        <div>
+            <p></p>
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}

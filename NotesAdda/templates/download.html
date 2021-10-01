@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %} Download {% endblock title %} {% block content %}
+<div id='dnContainer'>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Uploader Name</th>
+                <th scope="col">University/Collage</th>
+                <th scope="col">Branch/Course</th>
+                <th scope="col">Year</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Date</th>
+                <th scope="col">Download link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in query_set %}
+            <tr>
+                <th scope="row">{ data.id }</th>
+                <td>{ data.name }</td>
+                <td>{ data.uni_coll }</td>
+                <td>{ data.branchName }</td>
+                <td>{ data.year }</td>
+                <td>{ data.semName }</td>
+                <td>{ data.date }</td>
+                <td><button type="button" onclick="window.location.href='{{data.myFile}}'" class="btn btn-primary btn-sm">Click</button></td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+<hr id='hr'></hr>
+{% endblock content %}
