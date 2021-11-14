@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block content %}
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Download-Notes</h5>
+        <p class="card-text">Download all notes, sample papers, etc.</p>
+        <a href="/notes/download" class="btn btn-primary">Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upload-Notes</h5>
+        <p class="card-text">Uploading Your Notes to help us to improve our services better for you.</p>
+        <a href="/notes/upload" class="btn btn-primary">Upload</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

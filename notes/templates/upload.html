@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Upload-Notes{% endblock title %}
+
+{% block content %}
+
+{% for message in messages %}
+     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">{{message}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<div class="row">                
+        <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+            
+                
+                    <div class="col">
+                    <input type="text" class="form-control" name="filename" placeholder="File name" required="required">
+                    </div>  
+             
+
+           
+                
+                    <div class="col">
+                    <input type="text" class="form-control" name="owner" placeholder="File Owner" required="required">
+                    </div>  
+                   
+            
+
+          
+              
+                    <div class="col "><label>Choose a FIle</label>
+                        <input type="file" id="myFile" name="pdf" accept=".pdf" placeholder="Report Attachment" enctype="multipart/form-data">
+                    </div>
+           
+
+            
+                    <div class="col "><label>Choose Cover Image</label>
+                            <input type="file" id="myFile" name="cover" accept="image/*" placeholder="Report Attachment" enctype="multipart/form-data">
+                    </div>
+              
+
+            
+                <button type="submit" class="btn btn-success  btn-block" href="">Upload</button>
+            </div>
+    </form>
+
+{% endblock content %}

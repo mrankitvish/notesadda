@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+SignUp
+{% endblock title %}
+
+{% block content %} 
+
+    <form action="" class="form-label" method="post" novalidate>{% csrf_token %}
+    {% for fm in form %}
+            <div class="col">
+        {{fm.label_tag}}
+        {{fm}}
+        </div>
+          {{fm.errors}}
+            
+    {% endfor %}
+
+    <input class="btn btn-success mt-3" type="submit" value="Submit">
+    </form>
+   
+{% endblock content %} 
